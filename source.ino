@@ -1,8 +1,8 @@
-// C++ code
-//
+//@Author RickyWanga
 #define MAX 5
+//set the default gear on 1
 int marcia=1;
-
+//initialize the 7-segment display pins
 int a=7; 
 int b=6; 
 int c=5; 
@@ -11,128 +11,137 @@ int e=10;
 int f=8; 
 int g=9; 
 int dp=4; 
+//define the bool variable for the Park position on the gearbox
 bool parkToggle;
 
+//Display 1 on the 7-segment LED display
 void display1(void) 
 { 
     digitalWrite(a,HIGH);
     digitalWrite(c,HIGH);
 } 
-//display number2
+//Display 2 on the 7-segment LED display
 void display2(void) 
 {
     digitalWrite(a,HIGH);
     digitalWrite(b,HIGH);
     digitalWrite(g,HIGH);
-  	digitalWrite(e,HIGH);
+    digitalWrite(e,HIGH);
     digitalWrite(d,HIGH);
 } 
-// display number3
+//Display 3 on the 7-segment LED display
 void display3(void) 
 { 
     digitalWrite(a,HIGH);
     digitalWrite(b,HIGH);
-  	digitalWrite(c,HIGH);
+    digitalWrite(c,HIGH);
     digitalWrite(d,HIGH);
     digitalWrite(g,HIGH);
 } 
-// display number4
+//Display 4 on the 7-segment LED display
 void display4(void) 
 { 
     digitalWrite(f,HIGH);
     digitalWrite(a,HIGH);
     digitalWrite(g,HIGH);
-  	digitalWrite(c,HIGH);
+    digitalWrite(c,HIGH);
   
 } 
-// display number5
+//Display 5 on the 7-segment LED display
 void display5(void) 
 { 
     digitalWrite(b,HIGH);
     digitalWrite(f,HIGH);
     digitalWrite(g,HIGH);
-  	digitalWrite(c,HIGH);
+    digitalWrite(c,HIGH);
     digitalWrite(d,HIGH);
 } 
-// display number6
+//Display 6 on the 7-segment LED display
 void display6(void) 
 { 
     digitalWrite(b,HIGH);
     digitalWrite(f,HIGH);
     digitalWrite(g,HIGH);
-  	digitalWrite(c,HIGH);
+    digitalWrite(c,HIGH);
     digitalWrite(d,HIGH);  
     digitalWrite(e,HIGH);  
 } 
-// display number7
+//Display 7 on the 7-segment LED display
 void display7(void) 
 {   
-   	digitalWrite(a,HIGH);
+    digitalWrite(a,HIGH);
     digitalWrite(b,HIGH);
     digitalWrite(c,HIGH);
 } 
-// display number8
+//Display 8 on the 7-segment LED display
 void display8(void) 
 { 
     digitalWrite(a,HIGH);
     digitalWrite(b,HIGH);
     digitalWrite(g,HIGH);
-  	digitalWrite(c,HIGH);
+    digitalWrite(c,HIGH);
     digitalWrite(d,HIGH);  
     digitalWrite(e,HIGH);  
-  	digitalWrite(f,HIGH);  
-} 
-void clearDisplay(void) 
-{ 
-    digitalWrite(a,LOW);
-    digitalWrite(b,LOW);
-    digitalWrite(g,LOW);
-  	digitalWrite(c,LOW);
-    digitalWrite(d,LOW);  
-    digitalWrite(e,LOW);  
-  	digitalWrite(f,LOW);  
-} 
+    digitalWrite(f,HIGH);  
+}
+//Displays 9 on the 7-segment LED display
 void display9(void) 
 { 
     digitalWrite(a,HIGH);
     digitalWrite(b,HIGH);
     digitalWrite(g,HIGH);
-  	digitalWrite(c,HIGH);
+    digitalWrite(c,HIGH);
     digitalWrite(d,HIGH);  
-  	digitalWrite(f,HIGH);  
+    digitalWrite(f,HIGH);  
 } 
+//Displays 0 on the 7-segment LED display
 void display0(void) 
 { 
     digitalWrite(a,HIGH);
     digitalWrite(b,HIGH);
-  	digitalWrite(c,HIGH);
+    digitalWrite(c,HIGH);
     digitalWrite(d,HIGH);  
     digitalWrite(e,HIGH);  
-  	digitalWrite(f,HIGH);  
+    digitalWrite(f,HIGH);  
 }
+//Displays a N on the 7-segment LED display
 void displayN(void){
-	digitalWrite(a,HIGH);
+    digitalWrite(a,HIGH);
     digitalWrite(b,HIGH);
-  	digitalWrite(c,HIGH);
-    //digitalWrite(d,HIGH);  
+    digitalWrite(c,HIGH); 
     digitalWrite(e,HIGH);  
-  	digitalWrite(f,HIGH);
+    digitalWrite(f,HIGH);
 }
+//Displays a P on the 7-segment LED display
 void displayP(void){
-	digitalWrite(a,HIGH);
+    digitalWrite(a,HIGH);
     digitalWrite(b,HIGH);
-  	digitalWrite(g,HIGH);  
+    digitalWrite(g,HIGH);  
     digitalWrite(e,HIGH);  
-  	digitalWrite(f,HIGH);
+    digitalWrite(f,HIGH);
+}
+//Clears the 7-segment LED display
+void clearDisplay(void) 
+{ 
+    digitalWrite(a,LOW);
+    digitalWrite(b,LOW);
+    digitalWrite(g,LOW);
+    digitalWrite(c,LOW);
+    digitalWrite(d,LOW);  
+    digitalWrite(e,LOW);  
+    digitalWrite(f,LOW);  
 }
 
 void setup()
 {
+  //intialize the serial monitor for debugging purposes
   Serial.begin(9600);
   Serial.println("Macchina Avviata");
+  //set the input types for the button related to the UpShift, DownShift and the Park position
   pinMode(3, INPUT);
   pinMode(2, INPUT);
   pinMode(12, INPUT);
+  //set the pinMode for the 7-segment LED display
   int i;
     for(i=4;i<=11;i++) 
         pinMode(i,OUTPUT);
@@ -162,7 +171,7 @@ void loop()
     	marcia=MAX;
     }
     else{
-  		marcia++;
+  	marcia++;
     	Serial.println("Marcia Aggiunta");
     }
   }
@@ -172,7 +181,7 @@ void loop()
       	marcia=0;
     }
     else{
-  		marcia--;
+  	marcia--;
     	Serial.println("Marcia Tolta");
     }
   }
@@ -190,28 +199,28 @@ void loop()
     	displayP();
     }
     else{
-  		clearDisplay();
-   		display1();
+  	clearDisplay();
+   	display1();
     	Serial.println(marcia);
     }
   }
   if(marcia==2){
-  	clearDisplay();
+    clearDisplay();
     display2();
     Serial.println(marcia);
   }
   if(marcia==3){
-  	clearDisplay();
+    clearDisplay();
     display3();
     Serial.println(marcia);
   }
   if(marcia==4){
-  	clearDisplay();
+    clearDisplay();
     display4();
     Serial.println(marcia);
   }
   if(marcia==5){
-  	clearDisplay();
+    clearDisplay();
     display5();
     Serial.println(marcia);
   }
