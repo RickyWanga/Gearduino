@@ -4,5 +4,4 @@ A simple Arduino project for displaying the current gear on an Automatic Sequent
 ![This is an image](https://github.com/RickyWanga/Gearuino/blob/main/image.png)
 # Live Simulation
 The live(modified) code will be executed and tested on an Audi RS6 Automatics's Sequential Gearbox.
-Here is the tinkerCAD Circuits online simulation : 
-[Link] (https://www.tinkercad.com/things/2kLFSWsmm8D-gearuino)
+Here is the tinkerCAD Circuits online simulation : [Link](https://www.tinkercad.com/things/2kLFSWsmm8D-gearuino)
